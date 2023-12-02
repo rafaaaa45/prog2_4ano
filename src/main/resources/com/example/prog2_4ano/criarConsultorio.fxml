@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prog2_4ano.CriarConsultorio">
+   <children>
+      <ChoiceBox fx:id="empresa" layoutX="47.0" layoutY="48.0" prefWidth="150.0" />
+      <TextField fx:id="morada" layoutX="48.0" layoutY="93.0" promptText="morada" />
+      <TextField fx:id="telefone" layoutX="47.0" layoutY="187.0" promptText="telefone" />
+      <TextField fx:id="localidade" layoutX="47.0" layoutY="138.0" promptText="localidade" />
+      <Button fx:id="criarConsultorio" layoutX="71.0" layoutY="341.0" mnemonicParsing="false" onAction="#onCriarConsultorio" text="Criar Consultorio" />
+   </children>
+</AnchorPane>
