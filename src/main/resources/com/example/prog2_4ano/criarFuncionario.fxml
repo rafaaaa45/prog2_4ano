@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prog2_4ano.CriarFuncionario">
    <children>
       <TextField fx:id="username" layoutX="49.0" layoutY="23.0" promptText="username" />
@@ -15,7 +14,7 @@
       <TextField fx:id="cc" layoutX="49.0" layoutY="147.0" promptText="cc" />
       <TextField fx:id="nome" layoutX="49.0" layoutY="106.0" promptText="nome" />
       <TextField fx:id="password" layoutX="49.0" layoutY="65.0" promptText="password" />
-      <ChoiceBox fx:id="empresa" layoutX="285.0" layoutY="106.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="consultorio" layoutX="285.0" layoutY="106.0" prefWidth="150.0" />
       <TextField fx:id="localidade" layoutX="49.0" layoutY="300.0" promptText="localidade" />
       <Button fx:id="criarFuncionario" layoutX="360.0" layoutY="337.0" mnemonicParsing="false" onAction="#oncriarFuncionario" text="Criar funcionario" />
       <ChoiceBox fx:id="tipoFuncionario" layoutX="285.0" layoutY="36.0" prefWidth="150.0" />

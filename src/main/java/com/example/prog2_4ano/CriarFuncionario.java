@@ -35,7 +35,7 @@ public class CriarFuncionario implements Initializable {
     @FXML
     private ChoiceBox<String> tipoFuncionario;
     @FXML
-    private ChoiceBox<String> empresa;
+    private ChoiceBox<String> consultorio;
     @FXML
     private Button criarFuncionario;
 
@@ -50,10 +50,10 @@ public class CriarFuncionario implements Initializable {
         funcionario.setTelefone(telefone.getText());
         funcionario.setMorada(morada.getText());
         funcionario.setLocalidade(localidade.getText());
-        String nome = empresa.getValue().toString();
-        for(Empresa empresa1 : Repository.getRepository().getEmpresas().values()) {
-            if(empresa1.getNome().equals(nome)){
-                FuncionarioRepo.createFuncionario(funcionario, empresa1);
+        String telefone1 = consultorio.getValue().toString();
+        for(Consultorio consultorio1 : Repository.getRepository().getConsultorios().values()) {
+            if(consultorio1.getTelefone().equals(telefone1)){
+                FuncionarioRepo.createFuncionario(funcionario, consultorio1);
             }
         }
 
@@ -74,9 +74,9 @@ public class CriarFuncionario implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         donoEmpresa donoEmpresa = new donoEmpresa();
         donoEmpresa.setNome(sessionData.donoEmpresa.getNome());
-        for(Empresa empresa1 : Repository.getRepository().getEmpresas().values()) {
-            if(empresa1.getDonoEmpresa().getNome().equals(donoEmpresa.getNome()))
-                empresa.getItems().addAll(empresa1.getNome());
+        for(Consultorio consultorio1 : Repository.getRepository().getConsultorios().values()) {
+            if(consultorio1.getEmpresa().getDonoEmpresa().getNome().equals(donoEmpresa.getNome()))
+                consultorio.getItems().addAll(consultorio1.getTelefone());
         }
         tipoFuncionario.getItems().addAll("dentistas", "enfermeiros", "auxiliares", "secretariado");
     }

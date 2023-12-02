@@ -9,6 +9,15 @@ public class Consultorio {
     private String localidade;
     private String telefone;
     private Empresa empresa;
+    private List<Funcionario> funcionarios;
+
+    public Consultorio() {
+        this.funcionarios = new ArrayList<>();
+    }
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
     public String getMorada() {
         return morada;
     }

@@ -14,7 +14,7 @@ public class Funcionario{
     private String morada;
     private String localidade;
     private tipoFuncionario tipoFuncionario;
-    private Empresa empresa;
+    private Consultorio consultorio;
     private List<Consulta> consultas;
 
     public Funcionario() {
@@ -97,11 +97,11 @@ public class Funcionario{
         this.tipoFuncionario = tipoFuncionario;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public Consultorio getConsultorio() {
+        return consultorio;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    public void setConsultorio(Consultorio consultorio) {
+        this.consultorio = consultorio;
     }
 }
