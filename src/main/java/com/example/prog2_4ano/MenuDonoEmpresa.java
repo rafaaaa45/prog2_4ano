@@ -23,8 +23,6 @@ public class MenuDonoEmpresa {
     @FXML
     private Button listConsultasEmpresa;
     @FXML
-    private Button listConsultasConsultorio;
-    @FXML
     private Button criarFuncionario;
     @FXML
     private Button logout;
@@ -104,6 +102,20 @@ public class MenuDonoEmpresa {
     protected void onlistFuncionario(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("listFuncionarios.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Criar Consultorio");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void onlistConsultasEmpresa(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("listConsultasEmpresa.fxml"));
             Scene regCena = new Scene (root);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(regCena);

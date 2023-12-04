@@ -10,52 +10,50 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ListClientes implements Initializable {
+public class ListConsultasAdmin implements Initializable {
     @FXML
-    private ListView<String> clientes;
-
+    private ListView<String> consultas;
     @FXML
     private Button voltar;
 
-    public static String clienteCurrente;
+    public static String consultaCurrente;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         Repository repo;
         repo = Repository.getRepository();
-        for (Cliente cliente : repo.getClientes().values()) {
-            clientes.getItems().addAll(cliente.getNome());
-
-            clientes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    clienteCurrente = clientes.getSelectionModel().getSelectedItem();
-                }
-            });
+        for (Consulta consulta : repo.getConsultas().values()) {
+            if (consulta.getEstadoConsulta().equals(estadoConsulta.porConfirmar)){
+                consultas.getItems().addAll(consulta.getData());
+            }
         }
+
+        consultas.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                consultaCurrente = consultas.getSelectionModel().getSelectedItem();
+            }
+        });
     }
 
     @FXML
-    public void onVoltar(ActionEvent event){
+    public void onVoltar(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("adminMenu.fxml"));
             Scene regCena = new Scene (root);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(regCena);
-            stage.setTitle("Admin");
+            stage.setTitle("Funcionario");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
 }

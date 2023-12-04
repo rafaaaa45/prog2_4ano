@@ -13,8 +13,8 @@ public class Repository {
     private Map<String, Consultorio> consultorios = new HashMap<>();
     private Map<String, Administrador> administradores = new HashMap<>();
     private Map<String, Funcionario> funcionarios= new HashMap<>();
-    private Map<Integer, Servico> servicos = new HashMap<>();
-    private Map<Integer, Consulta> consultas = new HashMap<>();
+    private Map<String, Servico> servicos = new HashMap<>();
+    private Map<String, Consulta> consultas = new HashMap<>();
 
 
     public Repository (){};
@@ -33,8 +33,8 @@ public class Repository {
     }
     public Map<String, Administrador> getAdministradores() {return administradores;}
     public Map<String, Funcionario> getFuncionarios() {return funcionarios;}
-    public Map<Integer, Servico> getServicos() {return servicos;}
-    public Map<Integer, Consulta> getConsultas(){return consultas;}
+    public Map<String, Servico> getServicos() {return servicos;}
+    public Map<String, Consulta> getConsultas(){return consultas;}
 
     public static Repository getRepository(){
 

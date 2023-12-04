@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prog2_4ano.FuncionarioMenu">
    <children>
-      <Text layoutX="271.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="funcionario" />
+      <Text layoutX="261.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="funcionario" />
+      <Button fx:id="verConsultas" layoutX="247.0" layoutY="100.0" mnemonicParsing="false" onAction="#onverConsultas" text="Ver consultas" />
+      <Button fx:id="logout" layoutX="247.0" layoutY="259.0" mnemonicParsing="false" onAction="#onlogout" text="logout" />
    </children>
 </AnchorPane>

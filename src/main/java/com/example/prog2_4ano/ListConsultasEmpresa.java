@@ -10,20 +10,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ListConsultas implements Initializable {
+public class ListConsultasEmpresa implements Initializable {
     @FXML
     private ListView<String> consultas;
-    @FXML
-    private Button confirmarConsulta;
-    @FXML
-    private Button anularConsulta;
     @FXML
     private Button voltar;
 
@@ -33,8 +28,9 @@ public class ListConsultas implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Repository repo;
         repo = Repository.getRepository();
+        String nome = sessionData.donoEmpresa.getNome();
         for (Consulta consulta : repo.getConsultas().values()) {
-            if (consulta.getEstadoConsulta().equals(estadoConsulta.porConfirmar)){
+            if (consulta.getFuncionario().getConsultorio().getEmpresa().getDonoEmpresa().getNome().equals(nome)){
                 consultas.getItems().addAll(consulta.getData());
             }
         }
@@ -48,35 +44,16 @@ public class ListConsultas implements Initializable {
     }
 
     @FXML
-    public void onConfirmarConsulta() {
-        for (Consulta consulta : Repository.getRepository().getConsultas().values()) {
-            if (consulta.getFuncionario().getNome().equals(sessionData.funcionario.getNome()) && consulta.getData().equals(consultas.getSelectionModel().getSelectedItem())) {
-                consulta.setEstadoConsulta(estadoConsulta.marcada);
-            }
-        }
-    }
-
-    @FXML
-    public void onAnularConsulta() {
-        for (Consulta consulta : Repository.getRepository().getConsultas().values()) {
-            if (consulta.getFuncionario().getNome().equals(sessionData.funcionario.getNome()) && consulta.getData().equals(consultas.getSelectionModel().getSelectedItem())) {
-                consulta.setEstadoConsulta(estadoConsulta.anulada);
-            }
-        }
-    }
-
-    @FXML
     public void onVoltar(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("funcionarioMenu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("menuDonoEmpresa.fxml"));
             Scene regCena = new Scene (root);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(regCena);
-            stage.setTitle("Funcionario");
+            stage.setTitle("Dono Empresa");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

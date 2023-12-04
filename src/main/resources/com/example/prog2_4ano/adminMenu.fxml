@@ -7,11 +7,13 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prog2_4ano.AdminMenu">
    <children>
       <Text layoutX="268.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin" />
-      <Button fx:id="listClientes" layoutX="314.0" layoutY="78.0" mnemonicParsing="false" onAction="#onlistClientes" prefHeight="52.0" prefWidth="168.0" text="Listar clientes" />
-      <Button fx:id="listDonosEmpresa" layoutX="106.0" layoutY="78.0" mnemonicParsing="false" onAction="#onlistDonosEmpresa" prefHeight="52.0" prefWidth="168.0" text="Listar donos de empresa" />
-      <Button fx:id="listEmpresas" layoutX="106.0" layoutY="177.0" mnemonicParsing="false" onAction="#onlistEmpresas" prefHeight="52.0" prefWidth="168.0" text="Listar empresas" />
-      <Button fx:id="listConsultorios" layoutX="314.0" layoutY="177.0" mnemonicParsing="false" onAction="#onlistConsultorios" prefHeight="52.0" prefWidth="168.0" text="Listar consultorios" />
-      <Button fx:id="listFuncionarios" layoutX="106.0" layoutY="271.0" mnemonicParsing="false" onAction="#onlistFuncionarios" prefHeight="52.0" prefWidth="168.0" text="Listar funcionarios" />
-      <Button fx:id="listConsultas" layoutX="314.0" layoutY="271.0" mnemonicParsing="false" onAction="#onlistConsultas" prefHeight="52.0" prefWidth="168.0" text="Listar consultas" />
+      <Button fx:id="listClientes" layoutX="201.0" layoutY="78.0" mnemonicParsing="false" onAction="#onlistClientes" prefHeight="52.0" prefWidth="168.0" text="Listar clientes" />
+      <Button fx:id="listDonosEmpresa" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#onlistDonosEmpresa" prefHeight="52.0" prefWidth="168.0" text="Listar donos de empresa" />
+      <Button fx:id="listEmpresas" layoutX="398.0" layoutY="78.0" mnemonicParsing="false" onAction="#onlistEmpresas" prefHeight="52.0" prefWidth="168.0" text="Listar empresas" />
+      <Button fx:id="listConsultorios" layoutX="201.0" layoutY="174.0" mnemonicParsing="false" onAction="#onlistConsultorios" prefHeight="52.0" prefWidth="168.0" text="Listar consultorios" />
+      <Button fx:id="listFuncionarios" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#onlistFuncionarios" prefHeight="52.0" prefWidth="168.0" text="Listar funcionarios" />
+      <Button fx:id="listConsultas" layoutX="398.0" layoutY="174.0" mnemonicParsing="false" onAction="#onlistConsultas" prefHeight="52.0" prefWidth="168.0" text="Listar consultas" />
+      <Button fx:id="logout" layoutX="233.0" layoutY="351.0" mnemonicParsing="false" onAction="#onlogout" prefHeight="24.0" prefWidth="103.0" text="logout" />
+      <Button fx:id="criarAdmin" layoutX="201.0" layoutY="250.0" mnemonicParsing="false" onAction="#onCriarAdmin" prefHeight="52.0" prefWidth="168.0" text="Criar novo admin" />
    </children>
 </AnchorPane>

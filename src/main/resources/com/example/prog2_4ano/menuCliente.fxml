@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prog2_4ano.MenuCliente">
    <children>
-      <Text layoutX="271.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cliente" />
+      <Text layoutX="265.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cliente" />
+      <Button fx:id="marcarConsulta" layoutX="165.0" layoutY="148.0" mnemonicParsing="false" onAction="#onmarcarConsulta" text="Marcar consulta" />
+      <Button fx:id="fazerPagamento" layoutX="313.0" layoutY="148.0" mnemonicParsing="false" onAction="#onfazerPagamento" text="Fazer pagamento" />
+      <Button fx:id="logout" layoutX="256.0" layoutY="310.0" mnemonicParsing="false" onAction="#onlogout" text="logout" />
    </children>
 </AnchorPane>

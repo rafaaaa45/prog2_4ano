@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<?import javafx.scene.control.Button?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prog2_4ano.ListConsultorios">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prog2_4ano.ListConsultasAdmin">
    <children>
-      <ListView fx:id="consultorios" layoutX="14.0" layoutY="29.0" prefHeight="177.0" prefWidth="560.0" />
+      <ListView fx:id="consultas" layoutX="31.0" layoutY="38.0" prefHeight="206.0" prefWidth="538.0" />
       <Button fx:id="voltar" layoutX="256.0" layoutY="341.0" mnemonicParsing="false" onAction="#onVoltar" prefHeight="26.0" prefWidth="71.0" text="Voltar" />
    </children>
 </AnchorPane>

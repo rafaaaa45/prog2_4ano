@@ -10,52 +10,47 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ListClientes implements Initializable {
-    @FXML
-    private ListView<String> clientes;
-
+public class ListFuncionariosAdmin implements Initializable {
     @FXML
     private Button voltar;
+    @FXML
+    private ListView<String> funcionarios;
 
-    public static String clienteCurrente;
+    public static String funcionarioCurrente;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Repository repo;
         repo = Repository.getRepository();
-        for (Cliente cliente : repo.getClientes().values()) {
-            clientes.getItems().addAll(cliente.getNome());
+        for (Funcionario funcionario : repo.getFuncionarios().values()) {
+            funcionarios.getItems().addAll(funcionario.getNome());
 
-            clientes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            funcionarios.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    clienteCurrente = clientes.getSelectionModel().getSelectedItem();
+                    funcionarioCurrente = funcionarios.getSelectionModel().getSelectedItem();
                 }
             });
         }
     }
 
     @FXML
-    public void onVoltar(ActionEvent event){
+    protected void onVoltar(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("adminMenu.fxml"));
             Scene regCena = new Scene (root);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(regCena);
-            stage.setTitle("Admin");
+            stage.setTitle("Dono Empresa");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
 }

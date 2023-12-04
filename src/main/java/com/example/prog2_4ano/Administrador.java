@@ -4,24 +4,12 @@ public class Administrador{
     private String username;
     private String password;
     private String nome;
-    private Integer cc;
-    private Integer nif;
-    private Integer telefone;
+    private String cc;
+    private String nif;
+    private String telefone;
     private String morada;
     private String localidade;
     private String tipo;
-
-    public Administrador(String username, String password, String nome, Integer cc, Integer nif, Integer telefone, String morada, String localidade, String tipo) {
-        this.username = username;
-        this.password = password;
-        this.nome = nome;
-        this.cc = cc;
-        this.nif = nif;
-        this.telefone = telefone;
-        this.morada = morada;
-        this.localidade = localidade;
-        this.tipo = tipo;
-    }
 
     public String getUsername() {
         return username;
@@ -47,27 +35,27 @@ public class Administrador{
         this.nome = nome;
     }
 
-    public Integer getCc() {
+    public String getCc() {
         return cc;
     }
 
-    public void setCc(Integer cc) {
+    public void setCc(String cc) {
         this.cc = cc;
     }
 
-    public Integer getNif() {
+    public String getNif() {
         return nif;
     }
 
-    public void setNif(Integer nif) {
+    public void setNif(String nif) {
         this.nif = nif;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
