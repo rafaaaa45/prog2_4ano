@@ -134,3 +134,4 @@ public class Register implements Initializable {
         tipo.getItems().addAll("Cliente", "Dono Empresa");
     }
 }
+

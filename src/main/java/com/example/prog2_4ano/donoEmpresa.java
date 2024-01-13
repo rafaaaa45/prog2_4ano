@@ -107,3 +107,4 @@ public class donoEmpresa implements Serializable {
         this.estadoDonoEmpresa = estadoDonoEmpresa;
     }
 }
+

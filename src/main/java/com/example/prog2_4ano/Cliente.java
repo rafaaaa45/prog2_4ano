@@ -86,3 +86,4 @@ public class Cliente implements Serializable {
         this.tipo = tipo;
     }
 }
+
