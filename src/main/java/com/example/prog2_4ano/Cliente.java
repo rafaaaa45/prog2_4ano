@@ -1,8 +1,9 @@
 package com.example.prog2_4ano;
 
 import javafx.scene.control.TextField;
+import java.io.Serializable;
 
-public class Cliente{
+public class Cliente implements Serializable {
     private String username;
     private String password;
     private String nome;

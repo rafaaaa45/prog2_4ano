@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 public class Register implements Initializable {
     private boolean phoneStatus = false;
@@ -71,11 +72,16 @@ public class Register implements Initializable {
 
                 ClienteRepo.createClient(cliente);
 
+                // Serialize the data after registration
+                Repository repository = Repository.getRepository();
+                repository.getClientes().put(cliente.getUsername(), cliente);
+                SerializationUtil.serializeRepository(repository, "project_state.ser");
+
             }
             else{
                 donoEmpresa donoEmpresa = new donoEmpresa();
                 donoEmpresa.setMorada(morada.getText());
-                donoEmpresa.setLocalidade(localidade.toString());
+                donoEmpresa.setLocalidade(localidade.getText()); //mudado de toString
                 donoEmpresa.setNome(nome.getText());
                 donoEmpresa.setNif(nif.getText());
                 donoEmpresa.setCc(cc.getText());
@@ -86,7 +92,16 @@ public class Register implements Initializable {
 
                 donoEmpresaRepo.createCompanyOwner(donoEmpresa);
 
+
+                // Serialize the data after registration
+                Repository repository = Repository.getRepository();
+                repository.getDonosEmpresa().put(donoEmpresa.getUsername(), donoEmpresa);
+                SerializationUtil.serializeRepository(repository, "project_state.ser");
+
             }
+
+
+
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));

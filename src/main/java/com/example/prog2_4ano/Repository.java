@@ -1,10 +1,11 @@
 package com.example.prog2_4ano;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Repository {
+public class Repository implements Serializable {
     private static Repository repo = null;
 
     private Map<String, Cliente> clientes = new HashMap<>();
@@ -47,4 +48,5 @@ public class Repository {
 
         return repo;
     }
+
 }

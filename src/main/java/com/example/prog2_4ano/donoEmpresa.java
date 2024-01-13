@@ -2,8 +2,9 @@ package com.example.prog2_4ano;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class donoEmpresa{
+public class donoEmpresa implements Serializable {
 
     private String username;
     private String password;
