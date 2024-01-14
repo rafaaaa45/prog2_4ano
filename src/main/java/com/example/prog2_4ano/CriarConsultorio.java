@@ -26,6 +26,8 @@ public class CriarConsultorio implements Initializable {
     private TextField telefone;
     @FXML
     private Button criarConsultorio;
+    @FXML
+    private Button voltar;
 
     @FXML
     void onCriarConsultorio(ActionEvent event) {
@@ -36,7 +38,7 @@ public class CriarConsultorio implements Initializable {
         String nome = empresa.getValue().toString();
         for(Empresa empresa1 : Repository.getRepository().getEmpresas().values()) {
             if(empresa1.getNome().equals(nome)){
-                ConsultorioRepo.createConsultorio(consultorio, empresa1);
+                ConsultorioRepo.createConsultorio(consultorio, empresa1, sessionData.donoEmpresa);
             }
         }
 
@@ -59,6 +61,20 @@ public class CriarConsultorio implements Initializable {
         for(Empresa empresa1 : Repository.getRepository().getEmpresas().values()) {
             if(empresa1.getDonoEmpresa().getNome().equals(donoEmpresa.getNome()))
                 empresa.getItems().addAll(empresa1.getNome());
+        }
+    }
+
+    @FXML
+    protected void onVoltar(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("menuDonoEmpresa.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Dono Empresa");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

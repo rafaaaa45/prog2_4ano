@@ -6,3 +6,4 @@ public enum tipoFuncionario {
     auxiliares,
     secretariado
 }
+

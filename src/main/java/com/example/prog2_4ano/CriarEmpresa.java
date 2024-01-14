@@ -23,6 +23,8 @@ public class CriarEmpresa {
     private TextField telefone;
     @FXML
     private Button criarEmpresa;
+    @FXML
+    private Button voltar;
 
 
 
@@ -37,6 +39,7 @@ public class CriarEmpresa {
         EmpresaRepo.createEmpresa(empresa, sessionData.donoEmpresa);
 
 
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("menuDonoEmpresa.fxml"));
             Scene regCena = new Scene(root);
@@ -49,4 +52,19 @@ public class CriarEmpresa {
         }
 
         }
+
+
+    @FXML
+    protected void onVoltar(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("menuDonoEmpresa.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Dono Empresa");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

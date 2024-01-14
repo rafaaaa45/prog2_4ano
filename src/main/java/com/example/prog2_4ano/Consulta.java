@@ -1,10 +1,11 @@
 package com.example.prog2_4ano;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Consulta {
+public class Consulta implements Serializable {
     private tipoConsulta tipoConsulta;
     private String preco;
     private Funcionario funcionario;

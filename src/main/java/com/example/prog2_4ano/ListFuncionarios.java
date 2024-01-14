@@ -26,17 +26,21 @@ public class ListFuncionarios implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Repository repo;
-        repo = Repository.getRepository();
-        for (Funcionario funcionario : repo.getFuncionarios().values()) {
-            funcionarios.getItems().addAll(funcionario.getNome());
+        Repository repo = Repository.getRepository();
+        donoEmpresa currentDonoEmpresa = sessionData.donoEmpresa;
 
-            funcionarios.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    funcionarioCurrente = funcionarios.getSelectionModel().getSelectedItem();
-                }
-            });
+        for (Funcionario funcionario : repo.getFuncionarios().values()) {
+            // Check if the Funcionario was created by the currentDonoEmpresa
+            if (funcionario.getConsultorio().getEmpresa().getDonoEmpresa().equals(currentDonoEmpresa)) {
+                funcionarios.getItems().addAll(funcionario.getNome());
+
+                funcionarios.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+                    @Override
+                    public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                        funcionarioCurrente = funcionarios.getSelectionModel().getSelectedItem();
+                    }
+                });
+            }
         }
     }
 

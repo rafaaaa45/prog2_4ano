@@ -34,6 +34,8 @@ public class CriarAdmin {
     private TextField localidade;
     @FXML
     private Button criarAdmin;
+    @FXML
+    private Button voltar;
 
     @FXML
     void oncriarAdmin(ActionEvent event) {
@@ -59,4 +61,18 @@ public class CriarAdmin {
             e.printStackTrace();
         }
         }
+
+    @FXML
+    public void onVoltar(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("adminMenu.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Funcionario");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

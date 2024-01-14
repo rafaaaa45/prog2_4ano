@@ -38,6 +38,8 @@ public class CriarFuncionario implements Initializable {
     private ChoiceBox<String> consultorio;
     @FXML
     private Button criarFuncionario;
+    @FXML
+    private Button voltar;
 
     @FXML
     void oncriarFuncionario(ActionEvent event) {
@@ -51,9 +53,9 @@ public class CriarFuncionario implements Initializable {
         funcionario.setMorada(morada.getText());
         funcionario.setLocalidade(localidade.getText());
         String telefone1 = consultorio.getValue().toString();
-        for(Consultorio consultorio1 : Repository.getRepository().getConsultorios().values()) {
-            if(consultorio1.getTelefone().equals(telefone1)){
-                FuncionarioRepo.createFuncionario(funcionario, consultorio1);
+        for (Consultorio consultorio1 : Repository.getRepository().getConsultorios().values()) {
+            if (consultorio1.getTelefone().equals(telefone1)) {
+                FuncionarioRepo.createFuncionario(funcionario, consultorio1, sessionData.donoEmpresa);
             }
         }
 
@@ -79,5 +81,20 @@ public class CriarFuncionario implements Initializable {
                 consultorio.getItems().addAll(consultorio1.getTelefone());
         }
         tipoFuncionario.getItems().addAll("dentistas", "enfermeiros", "auxiliares", "secretariado");
+    }
+
+
+    @FXML
+    protected void onVoltar(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("menuDonoEmpresa.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Dono Empresa");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -30,15 +30,22 @@ public class ListEmpresas implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Repository repo;
         repo = Repository.getRepository();
-        for (Empresa empresa : repo.getEmpresas().values()) {
-            empresas.getItems().addAll(empresa.getNome());
+        donoEmpresa loggedInDonoEmpresa = sessionData.donoEmpresa;
 
-            empresas.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    empresaCurrente = empresas.getSelectionModel().getSelectedItem();
+        if (loggedInDonoEmpresa != null) {
+            for (Empresa empresa : repo.getEmpresas().values()) {
+                // Only display Empresas created by the logged-in donoEmpresa
+                if (empresa.getCreatedByDonoEmpresa() == loggedInDonoEmpresa) {
+                    empresas.getItems().addAll(empresa.getNome());
                 }
-            });
+
+                empresas.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+                    @Override
+                    public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                        empresaCurrente = empresas.getSelectionModel().getSelectedItem();
+                    }
+                });
+            }
         }
     }
 

@@ -23,19 +23,24 @@ public class ListConsultorios implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Repository repo;
-        repo = Repository.getRepository();
+        Repository repo = Repository.getRepository();
+        donoEmpresa loggedInDonoEmpresa = sessionData.donoEmpresa; // Assuming you have a way to get the logged-in donoEmpresa
+
         for (Consultorio consultorio : repo.getConsultorios().values()) {
-            consultorios.getItems().addAll(consultorio.getTelefone());
+            // Check if the consultorio is created by the logged-in donoEmpresa
+            if (consultorio.getCreatedByDonoEmpresa() != null &&
+                    consultorio.getCreatedByDonoEmpresa().equals(loggedInDonoEmpresa)) {
+                consultorios.getItems().addAll(consultorio.getTelefone());
+            }
         }
 
-            consultorios.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    consultorioCurrente = consultorios.getSelectionModel().getSelectedItem();
-                }
-            });
-        }
+        consultorios.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                consultorioCurrente = consultorios.getSelectionModel().getSelectedItem();
+            }
+        });
+    }
 
     @FXML
     protected void onVoltar(ActionEvent event) {

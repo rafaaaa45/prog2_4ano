@@ -1,9 +1,10 @@
 package com.example.prog2_4ano;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Funcionario{
+public class Funcionario implements Serializable {
 
     private String username;
     private String password;
@@ -16,6 +17,22 @@ public class Funcionario{
     private tipoFuncionario tipoFuncionario;
     private Consultorio consultorio;
     private List<Consulta> consultas;
+
+
+
+    private donoEmpresa createdByDonoEmpresa;
+
+    public donoEmpresa getCreatedByDonoEmpresa() {
+        return createdByDonoEmpresa;
+    }
+
+    public void setCreatedByDonoEmpresa(donoEmpresa createdByDonoEmpresa) {
+        this.createdByDonoEmpresa = createdByDonoEmpresa;
+    }
+
+
+
+
 
     public Funcionario() {
         this.consultas = new ArrayList<>();

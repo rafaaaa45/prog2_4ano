@@ -28,6 +28,8 @@ public class MarcarConsulta implements Initializable {
     private ChoiceBox funcionario;
     @FXML
     private Button marcarConsulta;
+    @FXML
+    private Button voltar;
 
 
     @FXML
@@ -66,15 +68,38 @@ public class MarcarConsulta implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tipoConsulta.getItems().addAll("consultaGeral", "limpezaDentes", "destartarizacao");
-        donoEmpresa donoEmpresa = new donoEmpresa();
-        donoEmpresa.setNome(sessionData.donoEmpresa.getNome());
-        for(Consultorio consultorio1 : Repository.getRepository().getConsultorios().values()) {
-            if(consultorio1.getEmpresa().getDonoEmpresa().getNome().equals(donoEmpresa.getNome()))
-                consultorio.getItems().addAll(consultorio1.getTelefone());
+
+        // Show all available consultorios
+        for (Consultorio consultorio1 : Repository.getRepository().getConsultorios().values()) {
+            consultorio.getItems().addAll(consultorio1.getTelefone());
         }
-        for(Funcionario funcionario1 : Repository.getRepository().getFuncionarios().values()) {
-            if(funcionario1.getConsultorio().getEmpresa().getDonoEmpresa().getNome().equals(donoEmpresa.getNome()))
-                funcionario.getItems().addAll(funcionario1.getNome());
+
+        // Set up a listener for the selected consultorio
+        consultorio.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            // Clear existing items in the funcionario ChoiceBox
+            funcionario.getItems().clear();
+
+            // Show only funcionarios from the selected consultorio
+            for (Funcionario funcionario1 : Repository.getRepository().getFuncionarios().values()) {
+                if (funcionario1.getConsultorio().getTelefone().equals(newValue)) {
+                    funcionario.getItems().addAll(funcionario1.getNome());
+                }
+            }
+        });
+    }
+
+
+    @FXML
+    protected void onVoltar(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("menuCliente.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Cliente");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

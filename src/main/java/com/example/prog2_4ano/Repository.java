@@ -18,6 +18,10 @@ public class Repository implements Serializable {
     private Map<String, Consulta> consultas = new HashMap<>();
 
 
+
+
+
+
     public Repository (){};
 
     public Map<String, Cliente> getClientes() {
@@ -48,6 +52,10 @@ public class Repository implements Serializable {
 
         return repo;
     }
+
+
+
+
 
 }
 

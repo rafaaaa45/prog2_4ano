@@ -23,8 +23,21 @@ public class Login extends Application {
             if (deserializedRepo != null) {
                 repository.getDonosEmpresa().putAll(deserializedRepo.getDonosEmpresa());
                 System.out.println("Deserialization successful. Size of donosEmpresa map: " + repository.getDonosEmpresa().size());
+
                 repository.getClientes().putAll(deserializedRepo.getClientes());
                 System.out.println("Deserialization successful. Size of Clientes map: " + repository.getClientes().size());
+
+                repository.getEmpresas().putAll(deserializedRepo.getEmpresas());
+                System.out.println("Deserialization successful. Size of Empresas map: " + repository.getEmpresas().size());
+
+                repository.getConsultorios().putAll(deserializedRepo.getConsultorios());
+                System.out.println("Deserialization successful. Size of Consultorios map: " + repository.getConsultorios().size());
+
+                repository.getFuncionarios().putAll(deserializedRepo.getFuncionarios());
+                System.out.println("Deserialization successful. Size of Funcionarios map: " + repository.getFuncionarios().size());
+
+                repository.getConsultas().putAll(deserializedRepo.getConsultas()); // Add this line
+                System.out.println("Deserialization successful. Size of Consultas map: " + repository.getConsultas().size());
             } else {
                 System.out.println("Deserialization failed. Using existing Repository.");
             }
@@ -43,5 +56,6 @@ public class Login extends Application {
         launch();
     }
 }
+
 
 

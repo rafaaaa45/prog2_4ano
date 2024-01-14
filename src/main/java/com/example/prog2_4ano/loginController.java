@@ -59,6 +59,10 @@ public class loginController {
                     found = true;
                     sd.donoEmpresa = donoEmpresa;
                     System.out.println("Login com Sucesso!");
+
+
+
+
                     Parent root = FXMLLoader.load(getClass().getResource("menuDonoEmpresa.fxml"));
                     Scene regCena = new Scene(root);
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

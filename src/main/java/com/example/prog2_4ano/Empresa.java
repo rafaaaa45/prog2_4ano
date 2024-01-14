@@ -2,8 +2,10 @@ package com.example.prog2_4ano;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Empresa {
+public class Empresa implements Serializable {
+
     private String nome;
     private String morada;
     private String localidade;
@@ -13,13 +15,27 @@ public class Empresa {
     private List<Consultorio> consultorios;
     private List<Funcionario> funcionarios;
 
+
+
+    private donoEmpresa createdByDonoEmpresa;
+
+
+    public com.example.prog2_4ano.donoEmpresa getCreatedByDonoEmpresa() {
+        return createdByDonoEmpresa;
+    }
+
+    public void setCreatedByDonoEmpresa(com.example.prog2_4ano.donoEmpresa createdByDonoEmpresa) {
+        this.createdByDonoEmpresa = createdByDonoEmpresa;
+    }
+
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }
 
-    public Empresa() {
+    public Empresa () {
         this.consultorios = new ArrayList<>();
         this.funcionarios = new ArrayList<>();
+        this.donoEmpresa = new donoEmpresa();   // Initialize donoEmpresa
     };
 
     public List<Consultorio> getConsultorios() {

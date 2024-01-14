@@ -1,15 +1,36 @@
 package com.example.prog2_4ano;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Consultorio {
+public class Consultorio implements Serializable {
 
     private String morada;
     private String localidade;
     private String telefone;
     private Empresa empresa;
     private List<Funcionario> funcionarios;
+
+
+
+
+    private donoEmpresa createdByDonoEmpresa;
+
+
+    public donoEmpresa getCreatedByDonoEmpresa() {
+        return createdByDonoEmpresa;
+    }
+
+    public void setCreatedByDonoEmpresa(donoEmpresa createdByDonoEmpresa) {
+        this.createdByDonoEmpresa = createdByDonoEmpresa;
+    }
+
+
+
+
+
+
 
     public Consultorio() {
         this.funcionarios = new ArrayList<>();

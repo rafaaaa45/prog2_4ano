@@ -26,11 +26,12 @@ public class ListConsultasEmpresa implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Repository repo;
-        repo = Repository.getRepository();
+        Repository repo = Repository.getRepository();
         String nome = sessionData.donoEmpresa.getNome();
         for (Consulta consulta : repo.getConsultas().values()) {
-            if (consulta.getFuncionario().getConsultorio().getEmpresa().getDonoEmpresa().getNome().equals(nome)){
+            Funcionario funcionario = consulta.getFuncionario();
+            if (funcionario.getConsultorio().getEmpresa().getDonoEmpresa().getNome().equals(nome) &&
+                    funcionario.getNome().equals(sessionData.funcionario.getNome())) {
                 consultas.getItems().addAll(consulta.getData());
             }
         }

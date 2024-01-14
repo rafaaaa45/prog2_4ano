@@ -31,10 +31,11 @@ public class ListConsultas implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Repository repo;
-        repo = Repository.getRepository();
+        Repository repo = Repository.getRepository();
         for (Consulta consulta : repo.getConsultas().values()) {
-            if (consulta.getEstadoConsulta().equals(estadoConsulta.porConfirmar)){
+            Funcionario funcionario = consulta.getFuncionario();
+            if (consulta.getEstadoConsulta().equals(estadoConsulta.porConfirmar) &&
+                    funcionario.getNome().equals(sessionData.funcionario.getNome())) {
                 consultas.getItems().addAll(consulta.getData());
             }
         }
